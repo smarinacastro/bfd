@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset= 'UTF-8'>
+    </head>
+
+    <body>
+
+        <script>
+            var nota1 = prompt ("digite sua primeira nota");
+            nota1 = parseFloat (nota1);
+
+            var nota2 = prompt ("digite sua segunda nota");
+            nota2 = parseFloat (nota2);
+
+            if (nota1 === 0 || nota2 === 0) {
+                alert ("reprovado");
+            }
+
+            var media = (nota1 + nota2) / 2;
+
+            if (media >= 5) {
+                alert ("aprovado");
+            } else {
+                alert ("reprovado");
+            }
+           
+
+
+        </script>
+
+    </body>
+
+
+
+
+
+</html>
