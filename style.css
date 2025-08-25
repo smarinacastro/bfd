@@ -1,0 +1,150 @@
+.btn_Add {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #28a745;
+    margin-top: 10px;
+}
+
+.btn_Limpar {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #c94c57;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.btn_Editar {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #377abd;
+}
+
+.btn_Deletar {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #c94c57;
+    margin-left: 12px;
+}
+
+.faixa-topo {
+    background-color: #3c4d5e;
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.faixa-topo h1 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.faixa {
+    background-color: #3c4d5e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    box-shadow: inset 0 -2px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+
+.faixa h2 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+
+.container {
+    background-color: white;
+    padding: 0 20px 20px 20px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    box-shadow: 28px 28px 100px rgba(23, 53, 102, 0.16);
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #80a1c1, #eee3ab);
+    
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px 20px 20px;
+}
+
+#listaAlunos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 500px;
+    
+}
+
+#listaAlunos li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 8px 12px;
+    border-top: 1px solid #ddd;
+    border-radius: 1px;
+}
+
+#listaAlunos li:nth-child(even) {
+    background-color: #ffffff;
+}
+
+#listaAlunos li:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+
+
+

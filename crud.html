@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+
+        <meta charset="UTF-8">
+
+        <title>Avaliação: CRUD em HTML</title>
+
+    </head>
+    
+    <body>
+        <div class="faixa-topo">
+            <h1>Avaliação: CRUD em HTML</h1>
+        </div>
+
+        <div class="container">
+            <div class="faixa">
+
+                <h2>Lista de alunos</h2>
+
+            </div>
+
+             <!--caixas de form para colocar as informações-->
+            <div class="form-container">
+
+            <label for="nome">Nome:</label>
+
+            <input type="text" id="nome" placeholder="Digite seu nome">
+            </div>
+
+            <div class="form-container">
+
+            <label for="email">E-mail:</label>
+
+            <input type="text" id="email" placeholder="Digite seu e-mail">
+            </div>
+
+            <!--botão para adicionar as informações-->
+            <button onclick="addInfo()" id="botaoAdd" class="btn_Add">Adicionar à lista</button>
+
+            <!--botão para limpar a lista de alunos-->
+            <button onclick="limparLista()" class="btn_Limpar">Limpar lista</button>
+
+            <!--lista de alunos-->
+            <ul id="listaAlunos"></ul>
+
+        </div>
+
+ <!----------------------------------------JAVASCRIPT------------------------------------------------------>
+            <script>
+                //array - a lista onde os elementos (alunos) vão ser guardados
+                let alunos = [];
+
+                let editIndex = null;
+
+                //identificar coisas do html no javascript
+                const nomeInput = document.getElementById("nome");
+                const emailInput = document.getElementById("email");
+                const botaoAdd = document.getElementById("botaoAdd");
+                const listaAlunos = document.getElementById("listaAlunos");
+
+                //------------------------------------------------------------
+                //função para adicionar os alunos na lista
+                function addInfo() {
+                    const nome = nomeInput.value.trim();
+                    const email = emailInput.value.trim();
+
+                    if (nome && email) {
+                        if (editIndex===null) { 
+                            //push-> adiciona ao final da lista
+                            //CREATE
+                            alunos.push({ nome, email });
+                            } else {
+                            //UPDATE
+                            alunos[editIndex] = { nome, email };
+                            editIndex = null;
+                            }
+
+                        //limpa os inputs
+                        nomeInput.value = "";
+                        emailInput.value = "";
+
+                        //mostra a lista atualizada
+                        mostrarLista ();
+
+                    }
+                }
+
+                //------------------------------------------------------------
+                //função para mostrar a lista
+                function mostrarLista () {
+                    listaAlunos.innerHTML = ""; //limpa a lista
+
+                    //o for each percorre o array alunos, pegando cada item e seu índice (posição dentro do array)
+                    alunos.forEach((aluno, index) => {
+                        const li = document.createElement("li"); //cria representações (li) para cada aluno na lista
+
+                        const texto = document.createElement("span");
+                        texto.textContent = `${aluno.nome} - ${aluno.email}`;
+
+                        const botoes = document.createElement("div");
+                        botoes.classList.add("botoes");
+                        
+                        const botaoEditar = document.createElement("button");
+                        botaoEditar.textContent = "Editar";
+                        botaoEditar.classList.add("btn_Editar"); //criando uma classe para cada botão, para editá-los separadamente no css
+                        botaoEditar.onclick = () => editarAluno(index);
+
+                        const botaoDeletar = document.createElement("button");
+                        botaoDeletar.textContent = "Deletar";
+                        botaoDeletar.classList.add("btn_Deletar"); //criando uma classe para cada botão, para editá-los separadamente no css
+                        botaoDeletar.onclick = () => deletarAluno(index);
+
+                        botoes.appendChild(botaoEditar);
+                        botoes.appendChild(botaoDeletar);
+
+                        li.appendChild(texto);
+                        li.appendChild(botoes);
+
+                        listaAlunos.appendChild(li);
+
+                    })
+
+                    //limpa os inputs
+                    document.getElementById('nome').value = "";
+                    document.getElementById('email').value = "";
+
+                }
+
+                //------------------------------------------------------------
+                function editarAluno(index) {
+                    //preenche os inputs com os dados atuais
+                    nomeInput.value = alunos [index].nome;
+                    emailInput.value = alunos [index].email;
+
+                    //guarda o índice pra atualizar depois
+                    editIndex = index;
+
+                }
+
+                //------------------------------------------------------------
+                function deletarAluno(index) {
+                    //remove as informações (o aluno) do array/lista
+                    alunos.splice(index, 1);
+
+                    //atualiza a lista
+                    mostrarLista();
+                }
+
+
+                //------------------------------------------------------------
+                function limparLista () {
+                    alunos = []; //esvazia a lista/array
+                    mostrarLista(); //atualiza a lista na tela
+                }
+
+            </script>
+
+    </body>
+
+</html>
