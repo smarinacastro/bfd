@@ -1,0 +1,57 @@
+$cor-primaria: rgb(29, 1, 36);
+$cor-secundaria: rgb(71, 247, 7);
+$tamanho-letra: 16px;
+
+@mixin caixa-estilizada($raio, $sombra) {
+  border-radius: $raio;
+  box-shadow: 0 2px 5px $sombra;
+}
+
+%clicavel {
+  font-size: $tamanho-letra;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.menu {
+  background-color: $cor-primaria;
+  padding: 10px;
+
+  ul {
+    display: flex;
+    justify-content: right;
+    list-style: none;
+    gap: 20px;
+
+    li {
+      a {
+        @extend %clicavel;
+        color: white;
+
+        &:hover {
+          color: $cor-secundaria;
+          border-bottom: 2px solid $cor-secundaria;
+        }
+      }
+    }
+  }
+}
+
+.botao {
+  @extend %clicavel;
+  background-color: $cor-primaria;
+  color: white;
+  border: none;
+  margin-top: 10px;
+
+  @include caixa-estilizada(8px, rgba(0,0,0,0.3));
+
+  &:hover {
+    background-color: darken($cor-primaria, 10%);
+    color: $cor-secundaria;
+  }
+}

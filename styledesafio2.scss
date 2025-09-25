@@ -1,0 +1,53 @@
+$cor-principal: rgb(30, 0, 255);
+$cor-secundaria: rgb(0, 195, 255);
+$espacamento: 10px;
+
+@mixin card-estilizado($raio, $sombra, $cor) {
+  border-radius: $raio;
+  box-shadow: 0 3px 6px $sombra;
+  border-top: 5px solid $cor;
+  padding: $espacamento;
+  background-color: white;
+}
+
+%texto-card {
+  color: black;
+  font-size: 1.2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $espacamento;
+  padding: $espacamento;
+}
+
+.card {
+  transition: transform 0.3s ease;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+
+  h2 {
+    @extend %texto-card;
+  }
+
+  p {
+    @extend %texto-card;
+  }
+}
+
+.card1 {
+  @include card-estilizado(8px, rgba(0,0,0,0.15), #26ff00);
+}
+
+.card2 {
+  @include card-estilizado(8px, rgba(0,0,0,0.15), #ff7b00);
+}
+
+.card3 {
+  @include card-estilizado(8px, rgba(0,0,0,0.15), #0066ff);
+}
